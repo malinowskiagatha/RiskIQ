@@ -35,6 +35,7 @@ The goals of this project are to analyze risks created from investing in Microso
 1.	The first step within any code is to load all dependencies. Dependencies are packages created within Python, which have certain functions built in that are not included in Python’s original package.
 Here I loaded all the dependencies I used to do the calculations and be able to run certain functions within the code.
 
+<img src="RiskIQ/Images/var1.png">
 The following explains what each one does and how they are used:
 
 •	**SciPy.stats (norm)** – This project requires to run the Normal Continuous Random Variable (norm) object, which is imported from the scipy.stats package. Functions, for example, kurtosis(), skew(), and zscore() are available within this package. Scipy.stats works hand-in-hand with NumPy arrays in order to produce functions within the scipy.stats package.  
