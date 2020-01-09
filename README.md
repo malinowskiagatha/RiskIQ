@@ -65,27 +65,36 @@ Reference for more info:
 
 2.	I choose to load the datasets of MSFT and SPY using the class method. I found this an easier method then having to create individual functions, recalling the data over and over again. This way you are able to call back the class easily and calculate values more efficiently. 
 
+<img src="Images/var2.png">
+
 The syntax for classes is generally the same. 
 - Your first step is line 90. Line 90 writes “class stock:” where you are naming the class “stock”.
 - The next step is to initialize (“__init__”) the class, which is done in line 97. You’ll see in line 97 that there are two variables: self and symbol. Self is the symbol used throughout the code to recall back to the class created. The symbol variable is identified only within the class. It helps organize the class and show what is being done.
 - Past line 97, the code is reading each provided file. Line 98 defines the path to where the two files are located. The path should look something like: C:\Users\name\Desktop\Final. Line 99 uppercases all stock symbols inputted. For example, in line 100 is self.symbol = ‘msft’, line 99 changes ‘msft’ to ‘MSFT’.
 - Line 100 through line105 import the MSFT and SPY data. I wrote this code specifically for importing those two tickers. That is why the code does not account for other stock tickers. You may follow the exact syntax as in the code, though you will only have to write in the path of the data.
 
+3. Now it is time to do the calculations. Here you can see that I use self to recall back the data I loaded in my class, followed by the name of the function being done.
+- I choose to not include daily returns in my class in order to present the calculation more clearly. I calculated MSFT and SPY daily returns by using the percentage change in the adjusted close price. You use the adjusted close price instead of the close price because close price only includes the price at which the stock costed at the close of a trading day. While, the adjusted close uses closing price as a base value, yet accounts for dividends, stock splits, and new stock offerings in order to come up with an adjusted close price.
+- The following code, from line 110 to line 153 calculates daily returns (based on percentage change in adjusted close price, mean, standard deviation, Sharpe ratio, kurtosis, skewness, variance, and value at risk (VaR95) at 95% confidence.
 
-3.	Step three is doing the calculations. Here you can see that I use self to recall back the data I loaded in my class, followed by the name of the function being done.
-1.	I choose to not include daily returns in my class in order to present the calculation more clearly. I calculated MSFT and SPY daily returns by using the percentage change in the adjusted close price. You use the adjusted close price instead of the close price because close price only includes the price at which the stock costed at the close of a trading day. While, the adjusted close uses closing price as a base value, yet accounts for dividends, stock splits, and new stock offerings in order to come up with an adjusted close price.
-2.	The following code, from line 110 to line 153 calculates daily returns (based on percentage change in adjusted close price, mean, standard deviation, Sharpe ratio, kurtosis, skewness, variance, and value at risk (VaR95) at 95% confidence.
+<img src="Images/var3.png">
 
-4.	Line 158 to line 184 is simply running the functions done in step 3 and formatting the answers to print in a clear way.
+4. Line 158 to line 184 is simply running the functions done in step 3 and formatting the answers to print in a clear way.
 
-5.	Another factor to this code is displaying the data’s linear regression.
-1.	Within my code, st1 is MSFT and st2 is SPY.
-2.	While displaying a linear regression, you must import two packages: NumPy and statsmodels.api. X and Y are two variables using NumPy to create arrays of the daily returns of MSFT and SPY.
-3.	Lines 194 to 196 describes the formatting of the linear regression that is to be printed.
+<img src="Images/var4.png">
+
+5. Another factor to this code is displaying the data’s linear regression.
+- Within my code, st1 is MSFT and st2 is SPY.
+- While displaying a linear regression, you must import two packages: NumPy and statsmodels.api. X and Y are two variables using NumPy to create arrays of the daily returns of MSFT and SPY.
+- Lines 194 to 196 describes the formatting of the linear regression that is to be printed.
+
+<img src="Images/var5.png">
 
 6.	The last part to the code is displaying histograms for each stock’s distribution. 
-1.	The matplotlib.pyplot library is used here as plt.
-2.	Line 203 creates two variables, fig (figure) and axes with plt.subplots. Here the number of columns (ncols) and if both plots share an x-axis (sharex) and a y-axis (sharey).
-3.	Same as within the regression, st1 is MSFT and st2 is SPY. In lines 205 and 204, the code is plotting MSFT and SPY data using their dailyreturns function calculated in line 110. Here we also identify certain aspects of the graph we are trying to plot. We identify where we want the axes to be places ([0] being left-hand side, [1] being bottom), if we want a grid or not, how many columns to show data (bins), width between each bin of data (rwidth), and color of the data within the graph in rgb. 
-4.	Lines 207 to 210, create names for the axes. Followed by plt.show() which runs the code for plotting the histogram of the dailyreturns of MSFT and SPY.
+- The matplotlib.pyplot library is used here as plt.
+- Line 203 creates two variables, fig (figure) and axes with plt.subplots. Here the number of columns (ncols) and if both plots share an x-axis (sharex) and a y-axis (sharey).
+- Same as within the regression, st1 is MSFT and st2 is SPY. In lines 205 and 204, the code is plotting MSFT and SPY data using their dailyreturns function calculated in line 110. Here we also identify certain aspects of the graph we are trying to plot. We identify where we want the axes to be places ([0] being left-hand side, [1] being bottom), if we want a grid or not, how many columns to show data (bins), width between each bin of data (rwidth), and color of the data within the graph in rgb. 
+- Lines 207 to 210, create names for the axes. Followed by plt.show() which runs the code for plotting the histogram of the dailyreturns of MSFT and SPY.
+
+<img src="Images/var6.png">
 
