@@ -12,7 +12,7 @@ There are 5 risk metrics: **Alpha, Beta, R Squared, Standard Deviation, and the 
 
 **R-Squared** measures the correlation percentage between the movements of a stock and the market or a benchmark index. An R-Squared value of 90% would show high correlation in the movement between the two. R-Squared of 50% could be considered to be a low correlation, and an R-Squared of under 50% would mean very little correlation in the movements between the selected stock and benchmark.
 
-**Standard Deviation** shows how much a return on investment differs from an expected return or an average return. (EX: "A 1% change in this would equate to this much change in this)
+**Standard Deviation** shows how much a return on investment differs from an expected return or an average return. A smaller standard deviation shows a less volatile investment. This means that returns are not very dispersed equating to lower risk. The larger the standard deviation, the more risky an ivestment is. A larger standard deviation means that returns are distributed farther from the mean.
 
 Lastly, the **Sharpe Ratio** compares the possible performance risk of a potential investment compared to a determined risk-free asset. The higher the Sharpe Ratio the better. 
 
@@ -20,13 +20,13 @@ In my code below, risk is calculated using **Value at Risk (VaR)**. VaR computes
 
 When managing risk, it is also important to understand, visually, its distribution. **Normal Curve Distribution** plots all values around the probability's mean. The two most important aspects of distributions in relation to risk are mean and standard deviation. Mean can be used to help calculate the average increase or decrease that a stock is undergoing on a daily basis. Standard deviation shows how much other values differ from the mean. The smaller the standard deviation the better. This is because as standard deviation grows, it shows that an investment is more risky.
 
-**Kurtosis** is important when working with distributions as well. Kurtosis measures the extreme values within each fat-tail. A distribution with high kurtosis signifies to investors that returns sometimes will be much more extreme compared to the mean (Kurtosis Risk). High kurtosis can be identified as a distribution curve with a low even distribution and fat-tails. A low kurtosis distribution shows lower possibility of having extreme returns and is identified as an even distribution situated closely around the mean with skinny-tails. Kurtosis has no correlation to the way a distribution curve looks like. A distribution curve could have a round, semi-circle, arched top and still have a high kurtosis. Kurtosis solely depends on instances where a distribution shows fat-tails and signs of risk within the size of each standard deviation.
+**Kurtosis** is important when working with distributions as well. Kurtosis measures the extreme values within each fat-tail. A distribution with high kurtosis signifies to investors that returns sometimes will be much more extreme compared to the mean (Kurtosis Risk). High kurtosis can be identified as a distribution curve with a low, even distribution and fat-tails. A low kurtosis distribution shows lower possibility of having extreme returns and is identified as an even distribution situated closely around the mean with skinny-tails. Kurtosis has no correlation to the way a distribution curve looks like. A distribution curve could have a round, semi-circle, arched top and still have a high kurtosis. Kurtosis solely depends on instances where a distribution shows fat-tails and signs of risk within the size of each standard deviation.
 
 
 
 <h3> <i>Goals</i> </h3>
 
-The goals of this project are to analyze risks created from investing in Microsoft (MSFT) compared to investing in the S&P 500 (SPY). By understanding the information presenting in the introduction, one can determine whether it is worth for them to invest in a certain stock.
+The goal of this project is to create a python library that will ease risk analysis from stock securities. Microsoft (MSFT) and S&P 500 (SPY) data are used to illustrate the functionality of the code. By understanding the information presenting in the introduction, one can determine whether it is investing in a certain stock.
 
 
 
@@ -70,12 +70,12 @@ Reference for more info:
 The syntax for classes is generally the same. 
 - Your first step is line 90. Line 90 writes “class stock:” where you are naming the class “stock”.
 - The next step is to initialize (“__init__”) the class, which is done in line 97. You’ll see in line 97 that there are two variables: self and symbol. Self is the symbol used throughout the code to recall back to the class created. The symbol variable is identified only within the class. It helps organize the class and show what is being done.
-- Past line 97, the code is reading each provided file. Line 98 defines the path to where the two files are located. The path should look something like: C:\Users\name\Desktop\Final. Line 99 uppercases all stock symbols inputted. For example, in line 100 is self.symbol = ‘msft’, line 99 changes ‘msft’ to ‘MSFT’.
-- Line 100 through line105 import the MSFT and SPY data. I wrote this code specifically for importing those two tickers. That is why the code does not account for other stock tickers. You may follow the exact syntax as in the code, though you will only have to write in the path of the data.
+- Past line 97, the code is reading each provided file. Line 98 defines the path to where the two files are located. The path should look something like: C:\Users\name\Desktop\Final. Line 99 uppercases all stock symbols inputted. For example, line 100 is self.symbol = ‘msft’, line 99 changes ‘msft’ to ‘MSFT’.
+- Line 100 through line 105 import the MSFT and SPY data. I wrote this code specifically for importing those two tickers. That is why the code does not account for other stock tickers. You may follow the exact syntax as in the code, though you will only have to write in the path of the data.
 
-3. Now it is time to do the calculations. Here you can see that I use self to recall back the data I loaded in my class, followed by the name of the function being done.
+3. Now it is time to do the calculations. Here you can see that I use "self" to recall back the data I loaded in my class, followed by the name of the function being done.
 - I choose to not include daily returns in my class in order to present the calculation more clearly. I calculated MSFT and SPY daily returns by using the percentage change in the adjusted close price. You use the adjusted close price instead of the close price because close price only includes the price at which the stock costed at the close of a trading day. While, the adjusted close uses closing price as a base value, yet accounts for dividends, stock splits, and new stock offerings in order to come up with an adjusted close price.
-- The following code, from line 110 to line 153 calculates daily returns (based on percentage change in adjusted close price, mean, standard deviation, Sharpe ratio, kurtosis, skewness, variance, and value at risk (VaR95) at 95% confidence.
+- The following code, from line 110 to line 153 calculates daily returns (based on percentage change in adjusted close price, mean, standard deviation, Sharpe ratio, kurtosis, skewness, variance, and value at risk (VaR95) at 95% confidence).
 
 <img src="Images/var3.png">
 
@@ -86,7 +86,7 @@ The syntax for classes is generally the same.
 5. Another factor to this code is displaying the data’s linear regression.
 - Within my code, st1 is MSFT and st2 is SPY.
 - While displaying a linear regression, you must import two packages: NumPy and statsmodels.api. X and Y are two variables using NumPy to create arrays of the daily returns of MSFT and SPY.
-- Lines 194 to 196 describes the formatting of the linear regression that is to be printed.
+- Lines 194 to 196 describe the formatting of the linear regression that is to be printed.
 
 <img src="Images/var5.png">
 
